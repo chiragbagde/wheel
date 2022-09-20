@@ -4,6 +4,7 @@ import { Sidebar as NeetoUISidebar } from "neetoui/layouts";
 import { useHistory } from "react-router-dom";
 
 import authenticationApi from "apis/authentication";
+import NotesSidebar from "components/Common/NotesSidebar";
 import {
   PROFILE_PATH,
   CHANGE_PASSWORD_PATH,
@@ -16,6 +17,7 @@ import { APP_NAME, SIDENAV_LINKS } from "./constants";
 
 const Sidebar = () => {
   const [isSidebarCollapsed, setIsSidebarCollapsed] = useState(true);
+
   const history = useHistory();
   const authDispatch = useAuthDispatch();
   const { user } = useUserState();
@@ -46,23 +48,26 @@ const Sidebar = () => {
   ];
 
   return (
-    <NeetoUISidebar
-      appName={APP_NAME}
-      changelogProps={{ id: "neetochangelog-trigger" }}
-      isCollapsed={isSidebarCollapsed}
-      navLinks={SIDENAV_LINKS}
-      organizationInfo={{
-        name: "Wheel",
-        subdomain: "bigbinary.com",
-      }}
-      profileInfo={{
-        name: `${user.first_name} ${user.last_name}`,
-        imageUrl: user.profile_image_path,
-        email: user.email,
-        bottomLinks,
-      }}
-      onCollapse={() => setIsSidebarCollapsed(!isSidebarCollapsed)}
-    />
+    <>
+      <NeetoUISidebar
+        appName={APP_NAME}
+        changelogProps={{ id: "neetochangelog-trigger" }}
+        isCollapsed={isSidebarCollapsed}
+        navLinks={SIDENAV_LINKS}
+        organizationInfo={{
+          name: "Wheel",
+          subdomain: "bigbinary.com",
+        }}
+        profileInfo={{
+          name: `${user.first_name} ${user.last_name}`,
+          imageUrl: user.profile_image_path,
+          email: user.email,
+          bottomLinks,
+        }}
+        onCollapse={() => setIsSidebarCollapsed(!isSidebarCollapsed)}
+      />
+      <NotesSidebar />
+    </>
   );
 };
 
