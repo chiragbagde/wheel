@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { Button } from "neetoui";
 import { Header } from "neetoui/layouts";
 
-const NotesHeader = ({ setShowNewNotePane }) => {
+const TitleBar = ({ setShowNewNotePane }) => {
   const [searchTerm, setSearchTerm] = useState("");
 
   return (
@@ -25,4 +25,4 @@ const NotesHeader = ({ setShowNewNotePane }) => {
   );
 };
 
-export default NotesHeader;
+export default TitleBar;

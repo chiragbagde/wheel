@@ -17,7 +17,7 @@ const Footer = ({ createdAt }) => (
         size="small"
         user={{
           imageUrl: "https://i.pravatar.cc/300",
-          name: "Neeraj",
+          name: "Sam Smith",
         }}
         onClick={() => {}}
       />

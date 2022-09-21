@@ -6,8 +6,8 @@ import { Container } from "neetoui/layouts";
 import { NOTES_DATA } from "./constants";
 import DeleteAlert from "./DeleteAlert";
 import Note from "./Note";
-import NotesHeader from "./NotesHeader";
 import NewNotePane from "./Pane/Create";
+import Header from "./TitleBar";
 
 const Notes = () => {
   const [loading, setLoading] = useState(true);
@@ -31,7 +31,7 @@ const Notes = () => {
 
   return (
     <Container>
-      <NotesHeader setShowNewNotePane={setShowNewNotePane} />
+      <Header setShowNewNotePane={setShowNewNotePane} />
       <Note NOTES_DATA={notes} />
       <NewNotePane
         fetchNotes={fetchNotes}

@@ -1,19 +1,28 @@
 // eslint-disable-next-line react/jsx-filename-extension
 import React from "react";
 
-import Content from "./Content.jsx";
-import Footer from "./Footer.jsx";
-import Header from "./Header.jsx";
-import Tooltip from "./Tooltip.jsx";
+import { Button, Typography } from "neetoui";
+
+import Footer from "./Footer";
+import Header from "./Header";
 
 const Note = ({ NOTES_DATA }) =>
   NOTES_DATA.map(NOTE => (
     <>
-      <div className="border-slate-300 shadow-slate-300 order-none box-border h-40 w-full  flex-grow-0 items-start self-stretch rounded-sm border-2 bg-white p-4 shadow-md">
+      <div className="border-slate-300 shadow-slate-300 order-none box-border h-40 w-full flex-grow-0 items-start self-stretch rounded-sm border-2 bg-white p-4 shadow-md">
         <Header title={NOTE.title} />
-        <Content text={NOTE.text} />
+        <Typography className="mb-4 text-gray-400" style="body2">
+          {NOTE.text}
+        </Typography>
+        <hr className="mb-4" />
         <Footer createdAt={NOTE.createdAt} />
-        {NOTE.createdAt.includes("Created") && <Tooltip />}
+        {NOTE.createdAt.includes("Created") && (
+          <Button
+            className="absolute right-12"
+            label="Wednesday 10:30AM"
+            onClick={() => {}}
+          />
+        )}
       </div>
       <br />
     </>
