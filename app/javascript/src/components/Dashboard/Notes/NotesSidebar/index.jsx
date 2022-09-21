@@ -5,11 +5,10 @@ import { Typography } from "neetoui";
 import { MenuBar } from "neetoui/layouts";
 
 const NotesSidebar = () => {
-  const [showMenu, setShowMenu] = useState(true);
   const [isSearchCollapsed, setIsSearchCollapsed] = useState(true);
 
   return (
-    <MenuBar showMenu={showMenu} title="Notes">
+    <MenuBar showMenu title="Notes">
       <MenuBar.Block active count={13} label="All" />
       <MenuBar.Block count={2} label="Users" />
       <MenuBar.Block count={7} label="Leads" />

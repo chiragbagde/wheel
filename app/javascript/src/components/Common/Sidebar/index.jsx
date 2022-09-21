@@ -4,7 +4,7 @@ import { Sidebar as NeetoUISidebar } from "neetoui/layouts";
 import { useHistory } from "react-router-dom";
 
 import authenticationApi from "apis/authentication";
-import NotesSidebar from "components/Common/NotesSidebar";
+import NotesSidebar from "components/Dashboard/Notes/NotesSidebar";
 import {
   PROFILE_PATH,
   CHANGE_PASSWORD_PATH,
