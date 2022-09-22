@@ -6,6 +6,8 @@ import { Button, Typography } from "neetoui";
 import Footer from "./Footer";
 import Header from "./Header";
 
+import { displayDayAndTime, displayTimeFromCreation } from "../utils";
+
 const Note = ({ NOTES_DATA }) =>
   NOTES_DATA.map(NOTE => (
     <>
@@ -15,11 +17,11 @@ const Note = ({ NOTES_DATA }) =>
           {NOTE.text}
         </Typography>
         <hr className="mb-4" />
-        <Footer createdAt={NOTE.createdAt} />
-        {NOTE.createdAt.includes("Created") && (
+        <Footer createdAt={displayTimeFromCreation(NOTE.createdAt)} />
+        {NOTE.status === "created" && (
           <Button
             className="absolute right-12"
-            label="Wednesday 10:30AM"
+            label={displayDayAndTime(NOTE.createdAt)}
             onClick={() => {}}
           />
         )}

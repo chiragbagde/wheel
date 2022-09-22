@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 
 import { Button } from "neetoui";
-import { Header } from "neetoui/layouts";
+import { Header as NeetoUIHeader } from "neetoui/layouts";
 
-const TitleBar = ({ setShowNewNotePane }) => {
+const Header = ({ setShowNewNotePane }) => {
   const [searchTerm, setSearchTerm] = useState("");
 
   return (
-    <Header
+    <NeetoUIHeader
       menuBarToggle={() => {}}
       title="All Notes"
       actionBlock={
@@ -25,4 +25,4 @@ const TitleBar = ({ setShowNewNotePane }) => {
   );
 };
 
-export default TitleBar;
+export default Header;

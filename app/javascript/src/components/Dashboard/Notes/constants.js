@@ -29,21 +29,25 @@ export const NOTES_DATA = [
   {
     title: "React",
     text: "React is a free and open-source front-end JavaScript library for building user interfaces based on UI components. It is maintained by Meta and a community of individual developers and companies. JavaScript framework and library developed by Facebook. It's used for building interactive user interfaces and web applications quickly.",
-    createdAt: "Created 2 hours ago",
+    createdAt: "2022-09-22",
+    status: "created",
   },
   {
     title: "Ruby",
     text: "Ruby is an interpreted, high-level, general-purpose programming language which supports multiple programming paradigms. It was designed with an emphasis on programming productivity and simplicity.Rails is a development tool which gives web developers a framework, providing structure for all the code they write.",
-    createdAt: "Drafted 2 hours ago",
+    createdAt: "2019-01-01",
+    status: "drafted",
   },
   {
     title: "Tailwind",
     text: "Tailwind CSS is an open source CSS framework. The main feature of this library is that, unlike other CSS frameworks like Bootstrap, it does not provide a series of predefined classes for elements such as buttons or tables.Tailwind CSS makes it quicker to write and maintain the code of your application. By using this utility-first framework.",
-    createdAt: "Drafted 2 hours ago",
+    createdAt: "2019-01-01",
+    status: "drafted",
   },
   {
     title: "Github",
     text: "GitHub, Inc., is an Internet hosting service for software development and version control using Git. It provides the distributed version control of Git plus access control, bug tracking, software feature requests, task management, continuous integration, and wikis for every project",
-    createdAt: "Drafted 2 hours ago",
+    createdAt: "2019-01-01",
+    status: "drafted",
   },
 ];
