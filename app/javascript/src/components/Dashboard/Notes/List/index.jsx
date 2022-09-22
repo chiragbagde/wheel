@@ -26,7 +26,7 @@ const List = ({ NOTES_DATA }) =>
           <div className="flex flex-row gap-2">
             <Clock />
             <Typography style="body2">
-              Created {calculateCreatedAgo(NOTE.createdAt)}
+              {`${NOTE.status} ${calculateCreatedAgo(NOTE.createdAt)}`}
             </Typography>
             <Avatar
               size="small"
