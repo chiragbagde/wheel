@@ -6,7 +6,8 @@ import { Container } from "neetoui/layouts";
 import { NOTES_DATA } from "./constants";
 import DeleteAlert from "./DeleteAlert";
 import Header from "./Header";
-import Note from "./Note";
+import List from "./List";
+import NotesSidebar from "./NotesSidebar";
 import NewNotePane from "./Pane/Create";
 
 const Notes = () => {
@@ -30,23 +31,26 @@ const Notes = () => {
   }
 
   return (
-    <Container>
-      <Header setShowNewNotePane={setShowNewNotePane} />
-      <Note NOTES_DATA={notes} />
-      <NewNotePane
-        fetchNotes={fetchNotes}
-        setShowPane={setShowNewNotePane}
-        showPane={showNewNotePane}
-      />
-      {showDeleteAlert && (
-        <DeleteAlert
-          refetch={fetchNotes}
-          selectedNoteIds={selectedNoteIds}
-          setSelectedNoteIds={setSelectedNoteIds}
-          onClose={() => setShowDeleteAlert(false)}
+    <>
+      <NotesSidebar />
+      <Container>
+        <Header setShowNewNotePane={setShowNewNotePane} />
+        <List NOTES_DATA={notes} />
+        <NewNotePane
+          fetchNotes={fetchNotes}
+          setShowPane={setShowNewNotePane}
+          showPane={showNewNotePane}
         />
-      )}
-    </Container>
+        {showDeleteAlert && (
+          <DeleteAlert
+            refetch={fetchNotes}
+            selectedNoteIds={selectedNoteIds}
+            setSelectedNoteIds={setSelectedNoteIds}
+            onClose={() => setShowDeleteAlert(false)}
+          />
+        )}
+      </Container>
+    </>
   );
 };
 
