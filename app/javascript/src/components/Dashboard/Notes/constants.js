@@ -49,7 +49,7 @@ export const NOTES_DATA = [
   },
   {
     title: "Github",
-    text: "GitHub, Inc., is an Internet hosting service for software development and version control using Git. It provides the distributed version control of Git plus access control, bug tracking, software feature requests, task management, continuous integration, and wikis for every project",
+    text: "GitHub, Inc., is an Internet hosting service for software development and version control using Git. It provides the distributed version control of Git plus access control, bug tracking, software feature requests, task management, continuous integration, and wikis for every project. it quicker to write and maintain the code of your application. By using this utility-first framework.",
     createdAt: "2019-01-01",
     status: "drafted",
     id: 4,
