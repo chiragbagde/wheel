@@ -7,8 +7,8 @@ import { NOTES_DATA } from "./constants";
 import DeleteAlert from "./DeleteAlert";
 import Header from "./Header";
 import List from "./List";
-import NotesSidebar from "./NotesSidebar";
 import NewNotePane from "./Pane/Create";
+import SideBar from "./SideBar";
 
 const Notes = () => {
   const [loading, setLoading] = useState(true);
@@ -32,7 +32,7 @@ const Notes = () => {
 
   return (
     <>
-      <NotesSidebar />
+      <SideBar />
       <Container>
         <Header setShowNewNotePane={setShowNewNotePane} />
         <List NOTES_DATA={notes} />
