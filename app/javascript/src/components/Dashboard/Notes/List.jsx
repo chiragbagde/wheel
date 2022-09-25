@@ -6,13 +6,20 @@ import { Button, Typography, Avatar, Dropdown } from "neetoui";
 
 import { formatDateAndTime, calculateCreatedAgo } from "./utils";
 
+const { MenuItem, Menu } = Dropdown;
+
 const List = ({ NOTES_DATA }) =>
   NOTES_DATA.map(NOTE => (
     <React.Fragment key={NOTE.id}>
       <div className="border-slate-300 shadow-slate-300 order-none box-border h-40 w-full flex-grow-0 items-start self-stretch rounded-sm border-2 bg-white p-4 shadow-md">
         <div className="flex justify-between font-bold ">
           <Typography style="h4">{NOTE.title}</Typography>
-          <Dropdown buttonStyle="text" icon={MenuVertical} />
+          <Dropdown buttonStyle="text" icon={MenuVertical}>
+            <Menu>
+              <MenuItem.Button>Edit</MenuItem.Button>
+              <MenuItem.Button style="danger">Delete</MenuItem.Button>
+            </Menu>
+          </Dropdown>
         </div>
         <Typography className="text-gray-400" style="body2">
           {NOTE.text}
