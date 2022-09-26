@@ -1,15 +1,22 @@
 // eslint-disable-next-line react/jsx-filename-extension
-import React from "react";
+import React, { useState } from "react";
 
 import { Clock, MenuVertical } from "neetoicons";
 import { Button, Typography, Avatar, Dropdown } from "neetoui";
 
+import DeleteAlert from "./DeleteAlert";
 import { formatDateAndTime, calculateCreatedAgo } from "./utils";
 
 const { MenuItem, Menu } = Dropdown;
 
-const List = ({ NOTES_DATA }) =>
-  NOTES_DATA.map(NOTE => (
+const List = ({ NOTES_DATA, fetchNotes }) => {
+  const [showDeleteAlert, setShowDeleteAlert] = useState(false);
+
+  const handleDelete = () => {
+    setShowDeleteAlert(true);
+  };
+
+  return NOTES_DATA.map(NOTE => (
     <React.Fragment key={NOTE.id}>
       <div className="border-slate-300 shadow-slate-300 order-none box-border h-40 w-full flex-grow-0 items-start self-stretch rounded-sm border-2 bg-white p-4 shadow-md">
         <div className="flex justify-between font-bold ">
@@ -17,7 +24,9 @@ const List = ({ NOTES_DATA }) =>
           <Dropdown buttonStyle="text" icon={MenuVertical}>
             <Menu>
               <MenuItem.Button>Edit</MenuItem.Button>
-              <MenuItem.Button style="danger">Delete</MenuItem.Button>
+              <MenuItem.Button style="danger" onClick={handleDelete}>
+                Delete
+              </MenuItem.Button>
             </Menu>
           </Dropdown>
         </div>
@@ -49,9 +58,17 @@ const List = ({ NOTES_DATA }) =>
             onClick={() => {}}
           />
         )}
+        {showDeleteAlert && (
+          <DeleteAlert
+            refetch={fetchNotes}
+            title={NOTE.title}
+            onClose={() => setShowDeleteAlert(false)}
+          />
+        )}
       </div>
       <br />
     </React.Fragment>
   ));
+};
 
 export default List;
