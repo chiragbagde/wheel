@@ -16,6 +16,7 @@ import { APP_NAME, SIDENAV_LINKS } from "./constants";
 
 const Sidebar = () => {
   const [isSidebarCollapsed, setIsSidebarCollapsed] = useState(true);
+
   const history = useHistory();
   const authDispatch = useAuthDispatch();
   const { user } = useUserState();
