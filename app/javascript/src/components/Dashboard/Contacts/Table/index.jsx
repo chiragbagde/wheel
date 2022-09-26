@@ -6,12 +6,12 @@ import { contactsTableColumnData } from "./utils";
 
 import { CONTACTS_LIST } from "../constants";
 
-const Table = () => (
+const Table = ({ handleDelete }) => (
   <NeetoUITable
     allowRowClick
     pagination
     rowSelection
-    columnData={contactsTableColumnData()}
+    columnData={contactsTableColumnData(handleDelete)}
     currentPageNumber={1}
     defaultPageSize={10}
     handlePageChange={() => {}}
