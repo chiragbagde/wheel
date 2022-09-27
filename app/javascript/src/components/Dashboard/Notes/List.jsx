@@ -11,9 +11,11 @@ const { MenuItem, Menu } = Dropdown;
 
 const List = ({ NOTES_DATA, fetchNotes }) => {
   const [showDeleteAlert, setShowDeleteAlert] = useState(false);
+  const [title, setTitle] = useState("");
 
-  const handleDelete = () => {
+  const handleDelete = id => {
     setShowDeleteAlert(true);
+    setTitle(id);
   };
 
   return NOTES_DATA.map(NOTE => (
@@ -24,12 +26,22 @@ const List = ({ NOTES_DATA, fetchNotes }) => {
           <Dropdown buttonStyle="text" icon={MenuVertical}>
             <Menu>
               <MenuItem.Button>Edit</MenuItem.Button>
-              <MenuItem.Button style="danger" onClick={handleDelete}>
+              <MenuItem.Button
+                style="danger"
+                onClick={() => handleDelete(NOTE.title)}
+              >
                 Delete
               </MenuItem.Button>
             </Menu>
           </Dropdown>
         </div>
+        {showDeleteAlert && (
+          <DeleteAlert
+            refetch={fetchNotes}
+            title={title}
+            onClose={() => setShowDeleteAlert(false)}
+          />
+        )}
         <Typography className="text-gray-400" style="body2">
           {NOTE.text}
         </Typography>
@@ -56,13 +68,6 @@ const List = ({ NOTES_DATA, fetchNotes }) => {
             className="absolute right-12"
             label={formatDateAndTime(NOTE.createdAt)}
             onClick={() => {}}
-          />
-        )}
-        {showDeleteAlert && (
-          <DeleteAlert
-            refetch={fetchNotes}
-            title={NOTE.title}
-            onClose={() => setShowDeleteAlert(false)}
           />
         )}
       </div>
