@@ -4,9 +4,19 @@ import * as yup from "yup";
 export const NOTES_FORM_INITIAL_FORM_VALUES = {
   title: "",
   description: "",
-  tags: [],
   role: null,
+  tags: [],
 };
+
+export const ROLES = buildSelectOptions(["Admin", "User", "Super Admin"]);
+
+export const TAGS = buildSelectOptions([
+  "Getting Started",
+  "Meeting",
+  "Learning",
+  "Onboarding",
+  "Leaves and Holidays",
+]);
 
 export const NOTES_TABLE_COLUMN_DATA = [
   {
@@ -54,15 +64,6 @@ export const NOTES_DATA = [
   },
 ];
 
-export const TAGS = buildSelectOptions([
-  "Getting Started",
-  "Onboarding",
-  "UX",
-  "bugs",
-]);
-
-export const ROLES = buildSelectOptions(["User", "Admin", "Guest"]);
-
 export const NOTES_FORM_VALIDATION_SCHEMA = yup.object().shape({
   title: yup.string().required("Title is required"),
   description: yup.string().required("Description is required"),
@@ -70,10 +71,10 @@ export const NOTES_FORM_VALIDATION_SCHEMA = yup.object().shape({
     .object()
     .nullable()
     .shape({
-      label: yup.string().oneOf(ROLES.map(tag => tag.label)),
-      value: yup.string().oneOf(ROLES.map(tag => tag.value)),
+      label: yup.string().oneOf(ROLES.map(role => role.label)),
+      value: yup.string().oneOf(ROLES.map(role => role.value)),
     })
-    .required("Role is required"),
+    .required("Assigned role is required."),
   tags: yup
     .array(
       yup
@@ -81,7 +82,7 @@ export const NOTES_FORM_VALIDATION_SCHEMA = yup.object().shape({
         .nullable()
         .shape({
           label: yup.string().oneOf(TAGS.map(tag => tag.label)),
-          value: yup.number().oneOf(TAGS.map(tag => tag.value)),
+          value: yup.string().oneOf(TAGS.map(tag => tag.value)),
         })
     )
     .min(1, "Tag is required")

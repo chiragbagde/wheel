@@ -1,14 +1,14 @@
 import React, { useState } from "react";
 
-import { Formik, Form } from "formik";
+import { Formik, Form as NeetoUIForm } from "formik";
 import { Button, Pane } from "neetoui";
-import { Input, Select, Textarea } from "neetoui/formik";
+import { Input, Textarea, Select } from "neetoui/formik";
 
 import notesApi from "apis/notes";
 
-import { NOTES_FORM_VALIDATION_SCHEMA, TAGS, ROLES } from "../constants";
+import { ROLES, TAGS, NOTES_FORM_VALIDATION_SCHEMA } from "../constants";
 
-const NoteForm = ({ onClose, refetch, note, isEdit }) => {
+const Form = ({ onClose, refetch, note, isEdit }) => {
   const [submitted, setSubmitted] = useState(false);
 
   const handleSubmit = async values => {
@@ -34,7 +34,7 @@ const NoteForm = ({ onClose, refetch, note, isEdit }) => {
       onSubmit={handleSubmit}
     >
       {({ isSubmitting }) => (
-        <Form className="w-full">
+        <NeetoUIForm className="w-full">
           <Pane.Body className="space-y-6">
             <Input
               required
@@ -50,21 +50,23 @@ const NoteForm = ({ onClose, refetch, note, isEdit }) => {
               rows={1}
             />
             <Select
+              isSearchable
               required
               className="w-full flex-grow-0"
-              label="Assigned contact"
+              label="Assigned Role"
               name="role"
               options={ROLES}
               placeholder="Select Role"
             />
             <Select
               isMulti
+              isSearchable
               required
               className="w-full flex-grow-0"
               label="Tags"
               name="tags"
               options={TAGS}
-              placeholder="Select Tags"
+              placeholder="Select Tag"
             />
           </Pane.Body>
           <Pane.Footer>
@@ -85,10 +87,10 @@ const NoteForm = ({ onClose, refetch, note, isEdit }) => {
               onClick={onClose}
             />
           </Pane.Footer>
-        </Form>
+        </NeetoUIForm>
       )}
     </Formik>
   );
 };
 
-export default NoteForm;
+export default Form;
