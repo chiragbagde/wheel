@@ -5,7 +5,7 @@ import { Alert, Toastr } from "neetoui";
 const DeleteAlert = ({ refetch, onClose, title }) => {
   const [deleting, setDeleting] = useState(false);
 
-  const handleDelete = async () => {
+  const handleDelete = () => {
     Toastr.success("Note deleted successfully");
     setDeleting(true);
     onClose();
