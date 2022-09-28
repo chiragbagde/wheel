@@ -46,8 +46,8 @@ export const CONTACTS_LIST = [
     id: 5,
   },
   {
-    name: "Ronald Richards",
-    email: "ronalrichards@yahoo.com",
+    name: "Anonymous coder",
+    email: "anonymouscoder@yahoo.com",
     createdAt: "June 1, 2022",
     role: "Super Admin",
     id: 6,
