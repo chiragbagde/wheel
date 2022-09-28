@@ -1,7 +1,5 @@
 import React, { useState } from "react";
 
-import React from "react";
-
 import { Clock, MenuVertical } from "neetoicons";
 import { Button, Typography, Avatar, Dropdown } from "neetoui";
 
