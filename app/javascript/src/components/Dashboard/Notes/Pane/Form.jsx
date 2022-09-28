@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 
-import { Formik, Form as NeetoUIForm } from "formik";
+import { Formik, Form as FormikForm } from "formik";
+
 import { Button, Pane } from "neetoui";
 import { Input, Textarea, Select } from "neetoui/formik";
 
@@ -34,7 +35,7 @@ const Form = ({ onClose, refetch, note, isEdit }) => {
       onSubmit={handleSubmit}
     >
       {({ isSubmitting }) => (
-        <NeetoUIForm className="w-full">
+        <FormikForm className="w-full">
           <Pane.Body className="space-y-6">
             <Input
               required
@@ -87,7 +88,7 @@ const Form = ({ onClose, refetch, note, isEdit }) => {
               onClick={onClose}
             />
           </Pane.Footer>
-        </NeetoUIForm>
+        </FormikForm>
       )}
     </Formik>
   );
