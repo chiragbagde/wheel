@@ -5,7 +5,7 @@ import { Typography, Avatar, Dropdown } from "neetoui";
 
 const { Menu, MenuItem } = Dropdown;
 
-export const contactsTableColumnData = () => [
+export const contactsTableColumnData = handleDelete => [
   {
     title: "Name & Role",
     dataIndex: "name",
@@ -54,7 +54,9 @@ export const contactsTableColumnData = () => [
       >
         <Menu>
           <MenuItem.Button>Edit</MenuItem.Button>
-          <MenuItem.Button style="danger">Delete</MenuItem.Button>
+          <MenuItem.Button style="danger" onClick={handleDelete}>
+            Delete
+          </MenuItem.Button>
         </Menu>
       </Dropdown>
     ),
