@@ -1,37 +1,25 @@
 import React, { useState } from "react";
 
 import { Formik, Form as FormikForm } from "formik";
+import { Button, Pane, Toastr } from "neetoui";
+import { Input, Select, Textarea } from "neetoui/formik";
 
-import { Button, Pane } from "neetoui";
-import { Input, Textarea, Select } from "neetoui/formik";
+import { ROLES } from "../constants";
 
-import notesApi from "apis/notes";
-
-import { ROLES, TAGS, NOTES_FORM_VALIDATION_SCHEMA } from "../constants";
-
-const Form = ({ onClose, refetch, note, isEdit }) => {
+const Form = ({ onClose, contact }) => {
   const [submitted, setSubmitted] = useState(false);
 
-  const handleSubmit = async values => {
-    try {
-      if (isEdit) {
-        await notesApi.update(note.id, values);
-      } else {
-        await notesApi.create(values);
-      }
-      refetch();
-      onClose();
-    } catch (err) {
-      logger.error(err);
-    }
+  const handleSubmit = () => {
+    setSubmitted(true);
+    Toastr.success("Contact added successfully.");
+    onClose();
   };
 
   return (
     <Formik
-      initialValues={note}
+      initialValues={contact}
       validateOnBlur={submitted}
       validateOnChange={submitted}
-      validationSchema={NOTES_FORM_VALIDATION_SCHEMA}
       onSubmit={handleSubmit}
     >
       {({ isSubmitting }) => (
@@ -51,30 +39,19 @@ const Form = ({ onClose, refetch, note, isEdit }) => {
               rows={1}
             />
             <Select
-              isSearchable
               required
               className="w-full flex-grow-0"
-              label="Assigned Role"
+              label="Role"
               name="role"
               options={ROLES}
               placeholder="Select Role"
-            />
-            <Select
-              isMulti
-              isSearchable
-              required
-              className="w-full flex-grow-0"
-              label="Tags"
-              name="tags"
-              options={TAGS}
-              placeholder="Select Tag"
             />
           </Pane.Body>
           <Pane.Footer>
             <Button
               className="mr-3"
               disabled={isSubmitting}
-              label={isEdit ? "Update" : "Save Changes"}
+              label="Save Changes"
               loading={isSubmitting}
               size="large"
               style="primary"
