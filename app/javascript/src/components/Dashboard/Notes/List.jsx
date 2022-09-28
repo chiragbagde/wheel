@@ -1,4 +1,3 @@
-// eslint-disable-next-line react/jsx-filename-extension
 import React from "react";
 
 import { Clock, MenuVertical } from "neetoicons";
