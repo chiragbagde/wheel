@@ -4,7 +4,7 @@ import { Formik, Form as FormikForm } from "formik";
 import { Button, Pane, Toastr } from "neetoui";
 import { Input, Select, Textarea } from "neetoui/formik";
 
-import { ROLES } from "../constants";
+import { CONTACTS_FORM_VALIDATION_SCHEMA, ROLES } from "../constants";
 
 const Form = ({ onClose, contact }) => {
   const [submitted, setSubmitted] = useState(false);
@@ -20,6 +20,7 @@ const Form = ({ onClose, contact }) => {
       initialValues={contact}
       validateOnBlur={submitted}
       validateOnChange={submitted}
+      validationSchema={CONTACTS_FORM_VALIDATION_SCHEMA}
       onSubmit={handleSubmit}
     >
       {({ isSubmitting }) => (
@@ -28,14 +29,22 @@ const Form = ({ onClose, contact }) => {
             <Input
               required
               className="w-full flex-grow-0"
-              label="Title"
-              name="title"
+              label="First Name"
+              name="firstName"
+              placeholder="Enter first name"
+            />
+            <Input
+              required
+              className="w-full flex-grow-0"
+              label="Last Name"
+              name="lastName"
+              placeholder="Enter last name"
             />
             <Textarea
               required
               className="w-full flex-grow-0"
-              label="Description"
-              name="description"
+              label="Email"
+              name="email"
               rows={1}
             />
             <Select
