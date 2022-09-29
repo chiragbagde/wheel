@@ -6,7 +6,7 @@ const DeleteAlert = ({ refetch, onClose, title }) => {
   const [deleting, setDeleting] = useState(false);
 
   const handleDelete = () => {
-    Toastr.success("Note is deleted successfully");
+    Toastr.success("Note is deleted successfully.");
     setDeleting(true);
     onClose();
     refetch();
