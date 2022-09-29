@@ -26,20 +26,22 @@ const Form = ({ onClose, contact }) => {
       {({ isSubmitting }) => (
         <FormikForm className="w-full">
           <Pane.Body className="space-y-6">
-            <Input
-              required
-              className="w-full flex-grow-0"
-              label="First Name"
-              name="firstName"
-              placeholder="Enter first name"
-            />
-            <Input
-              required
-              className="w-full flex-grow-0"
-              label="Last Name"
-              name="lastName"
-              placeholder="Enter last name"
-            />
+            <div className="flex w-full flex-row space-x-3">
+              <Input
+                required
+                className="w-full flex-grow-0"
+                label="First Name"
+                name="firstName"
+                placeholder="Enter first name"
+              />
+              <Input
+                required
+                className="w-full flex-grow-0"
+                label="Last Name"
+                name="lastName"
+                placeholder="Enter last name"
+              />
+            </div>
             <Textarea
               required
               className="w-full flex-grow-0"

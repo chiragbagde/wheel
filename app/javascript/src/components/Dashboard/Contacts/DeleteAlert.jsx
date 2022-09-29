@@ -10,7 +10,7 @@ const DeleteAlert = ({ onClose }) => (
     onClose={onClose}
     onSubmit={() => {
       onClose();
-      Toastr.success("Contact deleted successfully.");
+      Toastr.success("Contact is deleted successfully.");
     }}
   />
 );
