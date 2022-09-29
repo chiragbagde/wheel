@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 import { Clock, MenuVertical } from "neetoicons";
-import { Button, Typography, Avatar, Dropdown } from "neetoui";
+import { Button, Typography, Avatar, Tooltip, Dropdown } from "neetoui";
 
 import DeleteAlert from "./DeleteAlert";
 import { formatDateAndTime, calculateCreatedAgo } from "./utils";
@@ -45,13 +45,19 @@ const List = ({ NOTES_DATA, fetchNotes }) => {
           {NOTE.text}
         </Typography>
         <hr className="mb-2" />
-        <div className="flex flex-row items-center justify-between text-gray-400">
+        <div className="flex items-center justify-between">
           <Button label="Getting Started" style="secondary" />
-          <div className="flex flex-row gap-2">
+          <div className="flex justify-between gap-2">
             <Clock />
-            <Typography style="body2">
-              {`${NOTE.status} ${calculateCreatedAgo(NOTE.createdAt)}`}
-            </Typography>
+            <Tooltip
+              content={formatDateAndTime(NOTE.createdAt)}
+              followCursor="horizontal"
+              position="top"
+            >
+              <Typography style="body2">
+                {`${NOTE.status} ${calculateCreatedAgo(NOTE.createdAt)}`}
+              </Typography>
+            </Tooltip>
             <Avatar
               size="small"
               user={{
@@ -62,13 +68,6 @@ const List = ({ NOTES_DATA, fetchNotes }) => {
             />
           </div>
         </div>
-        {NOTE.status === "created" && (
-          <Button
-            className="absolute right-12"
-            label={formatDateAndTime(NOTE.createdAt)}
-            onClick={() => {}}
-          />
-        )}
       </div>
       <br />
     </React.Fragment>
