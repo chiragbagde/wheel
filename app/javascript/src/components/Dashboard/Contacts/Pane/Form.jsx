@@ -45,6 +45,7 @@ const Form = ({ onClose, contact }) => {
               className="w-full flex-grow-0"
               label="Email"
               name="email"
+              placeholder="Enter your email address"
               rows={1}
             />
             <Select
