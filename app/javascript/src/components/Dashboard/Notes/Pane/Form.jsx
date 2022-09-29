@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 
 import { Formik, Form as FormikForm } from "formik";
-
 import { Button, Pane } from "neetoui";
 import { Input, Textarea, Select } from "neetoui/formik";
 
@@ -85,6 +84,7 @@ const Form = ({ onClose, refetch, note, isEdit }) => {
               label="Cancel"
               size="large"
               style="text"
+              type="reset"
               onClick={onClose}
             />
           </Pane.Footer>
